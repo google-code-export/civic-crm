@@ -1,5 +1,5 @@
 #summary How to add an issue
 #labels Phase-Support
 
-= Add an Issue =
+= Add an Issue To an Existing Ticket =
 Whenever tickets are listed, there is an "Add Issue' button available. Click that button and fill out the form to add an issue to the ticket.
