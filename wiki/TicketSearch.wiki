@@ -2,6 +2,7 @@
 #labels Phase-Support
 
 = Ticket Search =
+Click the "Requests" link in the menubar to get to the ticket search page.
 
 You can choose which fields are displayed in the search results by selecting them in the "Fields to Display" box on the right.
 
