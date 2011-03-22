@@ -4,7 +4,8 @@
 = Doing Actions to Tickets =
 Actions contain the date the action was performed, the title of the action itself, and a comment section for the details. The person who enters the action is listed as the person who performed the action.
 
-To add an action, view a ticket. The ticket must have an open [status]. Choose the action you want to add from the list. A comment is required. 
+You can add actions while viewing a ticket.
+To add an action, view the ticket, then choose the action you want to add from the list.
 
 Read more about [Tickets] or [Issues]
 
