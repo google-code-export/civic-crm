@@ -11,7 +11,7 @@ Read more about [Tickets] or [Issues]
 = Available Actions =
 The actions available to you are based on your department.  On the My Department screen, you can choose which actions are available to be used by anyone in your department.
 
-= Administratiors can Create/Edit Actions =
+= Administrators can Create/Edit Actions =
 On the Actions screen, you can add and edit departmental actions.  The system actions are not editable.
 
 The action description is the text shown when displaying a history for a ticket or issue.  The system will substitute people's fullnames for the {enteredByPerson} and {actionPerson}
