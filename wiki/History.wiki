@@ -1,0 +1,10 @@
+#labels history,tickets,issues
+#A ticket's history is the list of [actions] taken on the ticket. Each issue in a ticket also has a history of its own.
+
+A ticket's history contains the date the action took place, who performed the action, and the details in the form of a comment.
+
+You cannot edit the history of a ticket.
+
+An issue's history contains any [responses] made to the constituent that reported the issue. It includes how the person was contacted, by whom, and when, as well as any comment from the staff member.
+
+Read more about [tickets] or [issues]
