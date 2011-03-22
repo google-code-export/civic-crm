@@ -7,4 +7,4 @@ Actions contain the date the action was performed, the title of the action itsel
 
 To add an action, view a ticket. The ticket must have an open [status]. Choose the action you want to add from the list. A comment is required. 
 
-Read more about [tickets] or [issues]
+Read more about [Tickets] or [Issues]
