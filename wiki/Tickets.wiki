@@ -1,7 +1,7 @@
 #labels tickets
-Tickets contain the following set of information. To understand the different between Tickets and Issues, refer to [Understanding_Tickets_and_Issues]
+==Tickets contain the following set of information. To understand the different between Tickets and Issues, refer to [Understanding_Tickets_and_Issues]
 
-[Actions]
-[History]
-[Locations]
-[Staff Assigned]
+*[Actions]
+*[History]
+*[Locations]
+*[Staff Assigned]
