@@ -1,10 +1,19 @@
 #labels actions,tickets
 #Actions are the steps a staff member takes to follow up on the request(s).
 
-Actions are added to a ticket.
-
+= Doing Actions to Tickets =
 Actions contain the date the action was performed, the title of the action itself, and a comment section for the details. The person who enters the action is listed as the person who performed the action.
 
 To add an action, view a ticket. The ticket must have an open [status]. Choose the action you want to add from the list. A comment is required. 
 
 Read more about [Tickets] or [Issues]
+
+= Available Actions =
+The actions available to you are based on your department.  On the My Department screen, you can choose which actions are available to be used by anyone in your department.
+
+= Administratiors can Create/Edit Actions =
+On the Actions screen, you can add and edit departmental actions.  The system actions are not editable.
+
+The action description is the text shown when displaying a history for a ticket or issue.  The system will substitute people's fullnames for the {enteredByPerson} and {actionPerson}
+
+The status dictates what status will be set on the ticket when that action is performed.  If there is no status for the action, then the ticket status will not change.
