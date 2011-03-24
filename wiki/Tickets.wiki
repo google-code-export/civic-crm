@@ -1,4 +1,3 @@
-#labels tickets
 Tickets contain the following set of information. To understand the different between Tickets and Issues, refer to [Understanding_Tickets_and_Issues]
 
 Tickets contain:
@@ -6,3 +5,4 @@ Tickets contain:
  * [History]
  * [Locations]
  * [Staff Assigned]
+ * [Status]
