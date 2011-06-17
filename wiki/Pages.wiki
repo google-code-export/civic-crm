@@ -1,5 +1,5 @@
-* [Actions]
-* [History]
+ * [Actions]
+ * [History]
  *[Issues]
  *[Locations]
  * [Status]
