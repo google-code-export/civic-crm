@@ -10,8 +10,8 @@
 </div>
 <div>
 <h2>Subunits</h2>
-The search results will not list subunits unless you ask for a specific subunit. If your intended address is a subunit, include the subunit in the address search box. If a matching subunit is found for that address, it will be included in the search results.<br>
-</div>
+<p>
+The search results will not list subunits unless you ask for a specific subunit. If your intended address is a subunit, include the subunit in the address search box. If a matching subunit is found for that address, it will be included in the search results.</p>
 <h2>Future Improvements</h2>
 <p>ITS is working on a feature where you can select the location on a map. This will allow you to see issues open in a given area, and select particular locations without worrying about the address.</p>
  
