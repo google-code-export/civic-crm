@@ -1,6 +1,6 @@
- [Actions]
+*  [Actions]
  
 * [History]
  *[Issues]
  *[Locations]
- *[Status]
+ * [Status]
