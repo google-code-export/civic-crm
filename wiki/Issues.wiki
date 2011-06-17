@@ -13,6 +13,6 @@ Issue Type: Such as complaints, staff report, etc</li>
 <li>Respond via: The way the person reporting the issue would like to be contacted</li>
 <li>Attachments</li></ul>
 
-<p>The Issue section also contains the issue's [Histories history] and [Responses]
+<p>The Issue section also contains the issue's [History] and [Responses]
 <h2>Future Improvements</h2>
 <p>Some categories will be able to &nbsp;add additional fields to be filled out for an issue or offer pre-fabricated comments to choose from. You'll see these when you choose a category.</p>
