@@ -1,4 +1,4 @@
- *[Actions]
+ *Actions
  *[History]
  *[Issues]
  *[Locations]
