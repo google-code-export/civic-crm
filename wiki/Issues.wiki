@@ -1,7 +1,7 @@
-<div>Issues are the reports from either the public or a staff member about an issue in the city.&nbsp;</div>
-<div><br>
-</div>
+<div>Issues are the reports from either the public or a staff member about an issue in the city.</div>
+<p>
 Issues will contain the following fields:
+</p>
 <ul>
 <li>Created by: the person who put the issue into the application</li>
 <li>Category: the type of problem being reported</li>
