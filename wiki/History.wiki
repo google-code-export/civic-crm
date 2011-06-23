@@ -1,5 +1,5 @@
-#labels history,tickets,issues
-#A case's history is the list of [Actions] taken on the ticket. Each issue in a case also has a history of its own.
+#labels history,cases,issues
+#A case's history is the list of [Actions] taken on the case. Each issue in a case also has a history of its own.
 
 A case's history contains the date the action took place, who performed the action, and the details in the form of a comment.
 
