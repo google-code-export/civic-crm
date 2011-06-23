@@ -1,19 +1,17 @@
 #labels issues
-<div>Issues are the reports from either the public or a staff member about an issue in the city.</div>
-<p>
-Issues will contain the following fields:
-</p>
-<ul>
-<li>Created by: the person who put the issue into the application</li>
-<li>Category: the type of problem being reported</li>
-<li>
-Issue Type: Such as complaints, staff report, etc</li>
-<li>Reported By: the person who is reporting the issue</li>
-<li>Contacted Via: The way the person reporting the issue contacted the city (email, in person, phone, etc)</li>
-<li>Comments:details about the issue</li>
-<li>Respond via: The way the person reporting the issue would like to be contacted</li>
-<li>Attachments</li></ul>
+Issues are the reports from either the public or a staff member about an issue in the city.
 
-<p>The Issue section also contains the issue's [History] and [Responses]
-<h2>Future Improvements</h2>
-<p>Some categories will be able to &nbsp;add additional fields to be filled out for an issue or offer pre-fabricated comments to choose from. You'll see these when you choose a category.</p>
+Issues will contain the following fields:
+  * Created by: the person who put the issue into the application
+  * Category: the type of problem being reported
+  * Issue Type: Such as complaints, staff report, etc
+  * Reported By: the person who is reporting the issue
+  * Contacted Via: The way the person reporting the issue contacted the city (email, in person, phone, etc)
+  * Comments:details about the issue
+  * Respond via: The way the person reporting the issue would like to be contacted
+  * Attachments
+
+The Issue section also contains the issue's [History] and [Responses]
+
+== Future Improvements ==
+Some categories will be able to &nbsp;add additional fields to be filled out for an issue or offer pre-fabricated comments to choose from. You'll see these when you choose a category.
