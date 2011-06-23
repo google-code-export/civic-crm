@@ -1,0 +1,24 @@
+#labels cases,issues
+Issues are specific requests from either a constituent or a staff member. They represent one instance of a complaint or issue that needs to be followed up.
+
+Since multiple requests can require the same actions (the same inspections for example), requests can be placed in cases to make it easier on the assigned staff.
+
+Cases are used to associate actions performed by staff to the requests that instigated the actions.
+
+Cases may contain the following information:
+ * Issues (requests)
+ * Actions
+ * A location
+ * An assigned staff member
+ * A referral to someone outside the organization
+ * A date the case was opened
+ * The person who opened it
+ * A status and resolution
+
+Issues may contain the following information:
+ * The person reporting the issue
+ * The type of issue (request, question, etc)
+ * Categories (multiple can be assigned - Trash Violations, Building violations, etc)
+ * Any responses to the person reporting the issue
+
+Both cases and issues contain many comment fields, as well.
