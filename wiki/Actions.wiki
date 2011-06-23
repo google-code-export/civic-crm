@@ -2,15 +2,15 @@
 <p style="line-height:1.25em">Actions are the steps a staff member takes to follow up on the request(s) on each case.</p>
 <h1>Doing Actions to Cases</h1>
 <p style="line-height:1.25em">Actions contain the date the action was performed, the title of the action itself, and a comment section for the details. The person who enters the action into the system is listed as the person who performed the action.</p>
-<p style="line-height:1.25em">You can add actions while viewing a case. To add an action, view the case, then choose the action you want to add from the list.&nbsp;</p>
-<p style="line-height:1.25em"><b>If you do not see available actions, check the caset's status.</b> If a case is closed, no actions are allowed.&nbsp;You can reopen a case to perform more actions on it.</p>
+<p style="line-height:1.25em">You can add actions while viewing a case. To add an action, view the case, then choose the action you want to add from the list.</p>
+<p style="line-height:1.25em"><b>If you do not see available actions, check the caset's status.</b> If a case is closed, no actions are allowed. You can reopen a case to perform more actions on it.</p>
 <h1 style="margin-top:0px"><a name="Available_Actions"></a>Available Actions</h1>
 <p style="line-height:1.25em">The actions available to you are based on your department. The list of actions available to a department is set up by a system administrator. To change the list of actions available to your department, contact ITS.</p>
 <h1>Other Changes</h1>
 <p>Besides the list of actions, there are other things you can change about the case. Other changes are indicated by an edit icon.</p>
 <p><b>Referrals</b> allows you to refer the case to a person. Separating referrals from assignments allows you to keep a staff liaison attached to the case when it requires work from outside the City.</p>
-<p><b>Assignments:&nbsp;</b>Cases are required to be assigned to a staff member. You can change the person assigned to the case. This will be recorded in a history log so you can see who was assigned to the case over time.</p>
+<p><b>Assignments:</b>Cases are required to be assigned to a staff member. You can change the person assigned to the case. This will be recorded in a history log so you can see who was assigned to the case over time.</p>
 <p><b>Status</b>: You can change the status of a case. If you close the case, you will be asked to specify how it was resolved. Some statuses are standards for everyone. Other statuses are custom per department. Change the list of statuses under <i>My Department</i>.</p>
 <h1 style="font-size:x-large;margin-top:0px"><a name="Administrators_can_Create/Edit_Actions"></a>Administrators can Create/Edit Actions</h1>
 <p style="line-height:1.25em">Administrators of the system are able to add new actions and edit existing actions. This includes the text that is displayed in the history describing the action, and the text used to choose the action.</p>
-<p style="line-height:1.25em">The action description is the text shown when displaying the history for a case or issue.&nbsp;</p>
+<p style="line-height:1.25em">The action description is the text shown when displaying the history for a case or issue.</p>
