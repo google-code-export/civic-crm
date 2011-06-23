@@ -6,19 +6,19 @@ Since multiple requests can require the same actions (the same inspections for e
 Tickets are used to associate actions performed by staff to the requests that instigated the actions.
 
 Tickets may contain the following information:
-*Issues (requests)
-*Actions
-*A location
-*An assigned staff member
-* A referral to someone outside the organization
-*A date the ticket was opened
-*The person who opened it
-*A status and resolution
+  * Issues (requests)
+  * Actions
+  * A location
+  * An assigned staff member
+  * A referral to someone outside the organization
+  * A date the ticket was opened
+  * The person who opened it
+  * A status and resolution
 
 Issues may contain the following information:
-*The person reporting the issue
-*The type of issue (request, question, etc)
-*Categories (multiple can be assigned - Trash Violations, Building violations, etc)
-*Any responses to the person reporting the issue
+  * The person reporting the issue
+  * The type of issue (request, question, etc)
+  * Categories (multiple can be assigned - Trash Violations, Building violations, etc)
+  * Any responses to the person reporting the issue
 
 Both tickets and issues contain many comment fields, as well.

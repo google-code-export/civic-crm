@@ -1,6 +1,8 @@
 #labels status,case
-<p>Staff members are able to change the status of a case. uReport contains two default statuses: open and closed. In addition, each department can define their own list of statuses to use.</p>
-<h2>Define your Department's List of Statuses</h2>
-<p>To create new statuses for your department, go to "My Department" and enter the name of each status you'd like to add, separated by commas.</p>
-<div>**Development Note**</div>
-<div>Originally we allowed for actions done to a case to change the status automatically. Unfortunately, this would force the user to perform an action to the case to change its status, and to know which actions changed to which status. Though a good concept, we needed to allow users to change the status independently of performing an action, since changing the status might not be the result of any new data - it might just be a choice on the part of the assigned staff member. Allowing for a status to be changed in two ways made the system feel inconsistent, so we took away the actions' ability to change the status. Now it is only a manual change.</div>
+Staff members are able to change the status of a case. uReport contains two default statuses: open and closed. In addition, each department can define their own list of statuses to use.
+
+== Define your Department's List of Statuses ==
+To create new statuses for your department, go to "My Department" and enter the name of each status you'd like to add, separated by commas.
+
+=== Development Note ===
+Originally we allowed for actions done to a case to change the status automatically. Unfortunately, this would force the user to perform an action to the case to change its status, and to know which actions changed to which status. Though a good concept, we needed to allow users to change the status independently of performing an action, since changing the status might not be the result of any new data - it might just be a choice on the part of the assigned staff member. Allowing for a status to be changed in two ways made the system feel inconsistent, so we took away the actions' ability to change the status. Now it is only a manual change.
