@@ -1,0 +1,5 @@
+#labels sanitation,HAND,usecase
+ # Sanitation searches for address. If a citation already exists on that address, sanitation will add a new issue to that case.
+ # If a citation does not exist, Sanitation will add a new case for that address. *Sanitation will immediately close that case.*
+ # When a new citation is added to that address, Sanitation will add it as a new issue to the existing case. *Sanitation must re-open the case to add a new issue*.
+ # Once three issues have been added to one case for that address, Sanitation will reassign that case to HAND.
