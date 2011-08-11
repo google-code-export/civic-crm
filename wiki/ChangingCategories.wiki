@@ -1,1 +1,4 @@
 Issues can now how custom fields associated with them based on its category. When adding a new case or issue, you must first choose a category so that uReport knows what fields to ask for.
+http://civic-crm.googlecode.com/issues/attachment?aid=1270005000&name=newcase.jpg&token=21230f9297a64d7359b36e96712dde06&inline=1
+
+http://civic-crm.googlecode.com/issues/attachment?aid=1270003000&name=addcase.jpg&token=2eff19f75848b8e2513a6fa9d82949c7&inline=1
