@@ -1,0 +1,1 @@
+Issues can now how custom fields associated with them based on its category. When adding a new case or issue, you must first choose a category so that uReport knows what fields to ask for.
