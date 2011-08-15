@@ -14,7 +14,7 @@ http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/answers.jpg
 *Changing the category of a case that has custom fields will result in new custom fields appearing in the issue area.*
 http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/history_change.jpg
 *If the new category has the same custom field, the data will be preserved. If it doesn't the data will appear in the history of the issue.*
-http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/samefield.jpg
+http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/same_field.jpg
 http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/customfieldsnotpopulated.jpg
 
 *Edit the issue to add data to these custom fields*
