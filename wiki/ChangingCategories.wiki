@@ -1,10 +1,10 @@
 *Issues can now how custom fields associated with them based on its category. When adding a new case or issue, you must first choose a category so that uReport knows what fields to ask for.*
 http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/newcase.jpg
 
-http://civic-crm.googlecode.com/issues/attachment?aid=1270003000&name=addcase.jpg&token=2eff19f75848b8e2513a6fa9d82949c7&inline=1
+http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/addcase.jpg
 
 *Once the new case/issue has been added, the custom fields will show up in the issue area.*
-http://civic-crm.googlecode.com/issues/attachment?aid=1270003001&name=answers.jpg&token=7bbbc7363ed94d89682baecc48c8a0f8&inline=1
+http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/answers.jpg
 
 *_You cannot have two categories associated with the same case_*
 
@@ -12,13 +12,12 @@ http://civic-crm.googlecode.com/issues/attachment?aid=1270003001&name=answers.jp
 
 ==Changing the Category==
 *Changing the category of a case that has custom fields will result in new custom fields appearing in the issue area.*
-http://civic-crm.googlecode.com/issues/attachment?aid=1270003004&name=history_change.jpg&token=d37d8e25b5db2e02eecd368f6da77d64&inline=1
-
-*If the new category has the same custom field, the data will be preserved. If it doesn't the data will apepar in the history of the issue.*
-http://civic-crm.googlecode.com/issues/attachment?aid=1270003005&name=same_field.jpg&token=be79a0e4056d7af1609bbac7a91869d5&inline=1
-
-http://civic-crm.googlecode.com/issues/attachment?aid=1270003002&name=customfieldsnotpopulated.jpg&token=77b146371ce6a4f1c3f554510af4f72b&inline=1
+http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/history_change.jpg
+*If the new category has the same custom field, the data will be preserved. If it doesn't the data will appear in the history of the issue.*
+http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/samefield.jpg
+http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/customfieldsnotpopulated.jpg
 
 *Edit the issue to add data to these custom fields*
-http://civic-crm.googlecode.com/issues/attachment?aid=1270006000&name=editissuebutton.jpg&token=521d8b8c981233fae45e422f893467db&inline=1
-http://civic-crm.googlecode.com/issues/attachment?aid=1270003003&name=editissue.jpg&token=481580ab16afc1ea56c51ce5a23df1e1&inline=1
+http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/editissuebutton.jpg
+
+http://civic-crm.googlecode.com/svn/trunk/crm/docs/images/editissue.jpg
