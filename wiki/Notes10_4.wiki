@@ -9,4 +9,4 @@ Javascript outline to create a form center created by Cliff. Finds URLs for 311 
 
 Usability study: survey of questions about where they were when they reported, etc. If we ask people who have reported . . . is there a privacy violation?
 
-ALan's suggestion: keep lat/long or valid address.
+ALan's suggestion: keep lat/long or valid address. Other cases at this address (or maybe around this address) might show a radius.
