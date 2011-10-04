@@ -8,3 +8,5 @@ Reverse geolocating using google, we can throw away google's address and use lat
 Javascript outline to create a form center created by Cliff. Finds URLs for 311 service, such as production, testing, etc. Once you've chosen a version, you can retrieve a service list (categories). Once you've chosen a service (category), you get the definition which includes all the form fields.
 
 Usability study: survey of questions about where they were when they reported, etc. If we ask people who have reported . . . is there a privacy violation?
+
+ALan's suggestion: keep lat/long or valid address.
