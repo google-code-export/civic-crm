@@ -1,0 +1,9 @@
+<?php
+/**
+ * @copyright 2011 City of Bloomington, Indiana
+ * @license http://www.gnu.org/licenses/agpl.txt GNU/AGPL, see LICENSE.txt
+ * @author Cliff Ingham <inghamn@bloomington.in.gov>
+ * @param Array $this->results
+ * @param string $this->return_url (optional)
+ */
+echo json_encode($this->results);
