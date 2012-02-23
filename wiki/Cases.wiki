@@ -1,8 +1,0 @@
-Cases contain the following set of information. To understand the different between Cases and Issues, refer to [Understanding_Cases_and_Issues]
-
-Cases contain:
- * [Actions]
- * [History]
- * [Locations]
- * [Staff Assigned]
- * [Status]
