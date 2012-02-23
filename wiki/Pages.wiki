@@ -1,8 +1,0 @@
- * [Home]
- * [Actions]
- * [History]
- * [Issues]
- * [Locations]
- * [Status]
- * [Responses]
- * [ChangingCategories]
