@@ -1,0 +1,15 @@
+{
+	_id:'',
+	name:'',
+	group:'',
+	description:'',
+	displayPermissionLevel:'',
+	postingPermissionLevel:'',
+	department: {},
+	customFields:[
+		{
+			name:'',
+			values:[]
+		}
+	]
+}
