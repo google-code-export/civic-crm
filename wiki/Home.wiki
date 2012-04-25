@@ -1,5 +1,4 @@
-uReport ("civic-crm") is a small scale, standalone, CRM web application with an Open311 (GeoReport v2) endpoint that should meet the needs of smaller municipalities wishing to deploy Open311 and/or a lightweight constituent management tool. Context-switched feeds (XML, JSON, etc) allow it to easily be integrated into existing environments.
-
-NOTE: License is really AGPL (Affero GNU General Public License) version 3. Entry currently says "GPL" only because no "AGPL" selection was available at the time this entry was created.
+=About=
+civic-crm is a small scale, standalone, CRM web application with an Open311 (GeoReport v2) endpoint that should meet the needs of smaller municipalities wishing to deploy Open311 and/or a lightweight constituent management tool.
 
 <wiki:video url="http://www.youtube.com/watch?v=ep-0dtYmx34"/>
