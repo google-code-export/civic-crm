@@ -3,6 +3,7 @@
  * @copyright 2011-2012 City of Bloomington, Indiana
  * @license http://www.gnu.org/licenses/agpl.txt GNU/AGPL, see LICENSE.txt
  * @author Cliff Ingham <inghamn@bloomington.in.gov>
+ * @param SolrObject $this->solrObject
  */
 $this->template->addToAsset('scripts',YUI.'/yui/yui-min.js');
 $this->template->addToAsset('scripts',BASE_URL.'/js/tickets/search.js');
@@ -48,28 +49,22 @@ $this->template->addToAsset('scripts',BASE_URL.'/js/tickets/search.js');
 		<h2>Advanced Search</h2>
 		<form method="get" action="<?php echo BASE_URL; ?>/tickets">
 			<fieldset id="advanced-search">
-				<div><h3>Department</h3>
-					<ul>
-					<?php
-						$list = new DepartmentList();
-						$list->find();
-						foreach ($list as $department) {
-							$checked = (isset($_GET['department'])
-										&& in_array("{$department->getId()}",$_GET['department']))
-								? 'checked="checked"'
-								: '';
-							$name = View::escape($department->getName());
-							echo "
-							<li><label>
-									<input name=\"department[]\" type=\"checkbox\" value=\"{$department->getId()}\" $checked />
-									$name
-								</label>
-							</li>
-							";
-						}
-					?>
-					</ul>
-				</div>
+				<?php
+					echo "{$this->solrObject->responseHeader->params}";
+					#if (isset($this->solrObject->facet_counts->facet_fields)) {
+					#	$facetFields = $this->solrObject->facet_counts->facet_fields;
+
+					#	if ($facetFields->department_id) {
+					#		echo "<div><h3>Departments</h3><ul>";
+					#		foreach ($facetFields->department_id as $id=>$count) {
+					#			$department = new Department($id);
+					#			$name = View::escape($department->getName());
+					#			echo "<li>$name ($count)</li>";
+					#		}
+					#		echo "</ul></div>";
+					#	}
+					#}
+				?>
 				<?php
 					$person = isset($_SESSION['USER']) ? $_SESSION['USER'] : 'anonymous';
 					$list = new CategoryList();

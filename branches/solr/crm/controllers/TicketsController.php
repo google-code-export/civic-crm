@@ -29,32 +29,22 @@ class TicketsController extends Controller
 	 */
 	public function index()
 	{
+		$this->template->setFilename('search');
 		if (userIsAllowed('tickets','add')) {
 			$this->template->blocks['search-form'][] = new Block('tickets/addNewForm.inc');
 		}
-		$this->template->setFilename('search');
-		$this->template->blocks['search-form'][] = new Block('tickets/searchForm.inc');
 
-		// Build the search query
-		if (TicketList::isValidSearch($_GET)) {
-			// Create the report
-			$report = (isset($_GET['report']) && $_GET['report']
-						&& is_file(APPLICATION_HOME."/blocks/{$this->template->outputFormat}/tickets/reports/$_GET[report].inc"))
-				? new Block("tickets/reports/$_GET[report].inc")
-				: new Block('tickets/searchResults.inc');
+		$search = new Search();
+		$solrObject = $search->query($_GET);
 
-			// Tell the report what fields we want displayed
-			$_GET['fields'] = empty($_GET['fields'])
-				? TicketList::$defaultFieldsToDisplay
-				: $_GET['fields'];
-
-
-			if ($this->template->outputFormat == 'html') {
-				$this->template->blocks['search-results'][] = new Block('tickets/customReportLinks.inc');
-				$this->template->blocks['search-results'][] = new Block('tickets/searchParameters.inc');
-			}
-			$this->template->blocks['search-results'][] = $report;
-		}
+		$this->template->blocks['search-form'][] = new Block(
+			'tickets/searchForm.inc',
+			array('solrObject'=>$solrObject)
+		);
+		$this->template->blocks['search-results'][] = new Block(
+			'tickets/searchResults.inc',
+			array('tickets'=>Search::hydrateDocs($solrObject))
+		);
 	}
 
 	/**

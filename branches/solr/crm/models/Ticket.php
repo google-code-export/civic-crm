@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright 2011 City of Bloomington, Indiana
+ * @copyright 2011-2012 City of Bloomington, Indiana
  * @license http://www.gnu.org/licenses/agpl.txt GNU/AGPL, see LICENSE.txt
  * @author Cliff Ingham <inghamn@bloomington.in.gov>
  */
@@ -290,6 +290,19 @@ class Ticket extends MongoRecord
 	}
 
 	/**
+	 * Returns the department of the person this ticket is assigned to.
+	 *
+	 * @return Department
+	 */
+	public function getDepartment()
+	{
+		$person = $this->getAssignedPerson();
+		if ($person && $person->getDepartment()) {
+			return new Department($person->getDepartment());
+		}
+	}
+
+	/**
 	 * @return Person
 	 */
 	public function getReferredPerson()
@@ -413,6 +426,16 @@ class Ticket extends MongoRecord
 	public function setLongitude($float)
 	{
 		$this->data['coordinates']['longitude'] = (float)$float;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLatLong()
+	{
+		if ($this->getLatitude() && $this->getLongitude()) {
+			return "{$this->getLatitude()},{$this->getLongitude()}";
+		}
 	}
 
 	/**
@@ -564,6 +587,17 @@ class Ticket extends MongoRecord
 		if (isset($this->data['issues'][$index])) {
 			return new Issue($this->data['issues'][$index]);
 		}
+	}
+
+	/**
+	 * Returns the description of the first issue in this ticket
+	 *
+	 * @return string
+	 */
+	public function getDescription()
+	{
+		$issue = $this->getIssue();
+		return $issue ? $issue->getDescription() : '';
 	}
 
 	/**
