@@ -37,6 +37,17 @@ define('FRAMEWORK',APPLICATION_HOME.'/libraries/framework');
 define('ZEND',APPLICATION_HOME.'/libraries/ZendFramework/library');
 
 /**
+ * Point to the Solr directory inside a release of solr-php-client
+ *
+ * http://code.google.com/p/solr-php-client
+ * svn export http://solr-php-client.googlecode.com/svn/trunk/Apache/Solr
+ */
+define('SOLR_LIBRARY',APPLICATION_HOME.'/libraries/Solr');
+define('SOLR_SERVER', 'http://localhost');
+define('SOLR_PORT', 8080);
+define('SOLR_URI', '/solr/crm');
+
+/**
  * JavaScript Libraries
  */
 define('YUI','http://yui.yahooapis.com/3.4.1/build');
