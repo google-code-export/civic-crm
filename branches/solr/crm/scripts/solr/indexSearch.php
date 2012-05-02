@@ -17,7 +17,7 @@ foreach ($results as $row) {
 	echo "$c: {$ticket->getId()}\n";
 }
 echo "Committing\n";
-$solr->solrClient->commit();
+$search->solrClient->commit();
 echo "Optimizing\n";
-$solr->solrClient->optimize();
+$search->solrClient->optimize();
 echo "Done\n";
