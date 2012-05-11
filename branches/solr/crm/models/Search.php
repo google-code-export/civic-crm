@@ -12,6 +12,8 @@ class Search
 	const ITEMS_PER_PAGE = 10;
 
 	/**
+	 * These are the base facets all users are allowed to search on
+	 *
 	 * The order declared here is the same order these facets will be
 	 * displayed, when used.
 	 */
@@ -19,7 +21,6 @@ class Search
 		'ticket'=>array(
 			'category_id'=>'Category',
 			'department_id'=>'Department',
-			'assignedPerson_id'=>'Assigned To',
 			'status'=>'Status',
 			'client_id'=>'Client',
 			'label'=>'Label',
@@ -35,8 +36,12 @@ class Search
 			'path'    => SOLR_SERVER_PATH
 		));
 
+		// Add additional fields to the faceted browsing
 		foreach (AddressService::$customFieldDescriptions as $key=>$desc) {
 			self::$facetFields['ticket'][$key] = $desc['description'];
+		}
+		if (userIsAllowed('people', 'view')) {
+			self::$facetFields['ticket']['assignedPerson_id'] = 'Assigned To';
 		}
 	}
 
