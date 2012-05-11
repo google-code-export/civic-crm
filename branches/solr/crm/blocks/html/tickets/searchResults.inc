@@ -9,8 +9,10 @@
  */
 $tickets = Search::hydrateDocs($this->solrObject);
 if (count($tickets)) {
+	$c = $this->solrObject->response->numFound;
 	echo "
 	<div class=\"searchResults\">
+	<h2>$c Cases</h2>
 	<table>
 	";
 	$header = new Block('tickets/partials/searchResultsColumnHeaders.inc', array('tickets'=>$tickets));
