@@ -140,6 +140,10 @@ class Ticket extends MongoRecord
 		}
 		$mongo->tickets->save($this->data,array('safe'=>true));
 
+		$search = new Search();
+		$search->add($this);
+		$search->solrClient->commit();
+
 		// If this is a brand new ticket, and we've just assigned it to someone
 		// We need to send them the notification
 		if (isset($assignment)) {
