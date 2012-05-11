@@ -28,13 +28,22 @@ $title = $this->title ? View::escape($this->title) : 'New Case';
 				echo $block->render('html',$this->template);
 
 				// Check for and preserve any fields already in the request
-				foreach ($_REQUEST as $key=>$value) {
-					if ($key != 'category') {
-						$key = View::escape($key);
-						$value = View::escape($value);
-						echo "<input type=\"hidden\" name=\"$key\" value=\"$value\" />";
+				function renderInputs($array, $base=null) {
+					foreach ($array as $k=>$v) {
+						if ($k != 'category') {
+							$k = View::escape($k);
+							$name = $base ? "{$base}[{$k}]" : $k;
+							if (!is_array($v)) {
+								$v = View::escape($v);
+								echo "<input name=\"$name\" value=\"$v\" type=\"hidden\" />";
+							}
+							else {
+								renderInputs($v, $k);
+							}
+						}
 					}
 				}
+				renderInputs($_REQUEST);
 			?>
 			<button type="submit" class="add">Add New Case</button>
 		</fieldset>
