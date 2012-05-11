@@ -7,9 +7,23 @@
 class Search
 {
 	public $solrClient;
+	public static $defaultSort = array('field'=>'enteredDate', 'order'=>SolrQuery::ORDER_DESC);
+
+	const ITEMS_PER_PAGE = 10;
+
+	/**
+	 * The order declared here is the same order these facets will be
+	 * displayed, when used.
+	 */
 	public static $facetFields = array(
 		'ticket'=>array(
-			'status','client_id','label','type','department_id'
+			'category_id'=>'Category',
+			'department_id'=>'Department',
+			'assignedPerson_id'=>'Assigned To',
+			'status'=>'Status',
+			'client_id'=>'Client',
+			'label'=>'Label',
+			'type'=>'Type',
 		)
 	);
 
@@ -20,6 +34,10 @@ class Search
 			'port'    => SOLR_SERVER_PORT,
 			'path'    => SOLR_SERVER_PATH
 		));
+
+		foreach (AddressService::$customFieldDescriptions as $key=>$desc) {
+			self::$facetFields['ticket'][$key] = $desc['description'];
+		}
 	}
 
 	/**
@@ -30,8 +48,28 @@ class Search
 	{
 		$query = new SolrQuery('*:*');
 		$query->setFacet(true);
-		foreach (self::$facetFields['ticket'] as $field) {
+		$query->setRows(self::ITEMS_PER_PAGE);
+		if (!empty($get['page'])) {
+			$page = (int)$get['page'];
+			if ($page < 1) { $page = 1; }
+			$query->setStart($page * self::ITEMS_PER_PAGE);
+		}
+
+		$sort = self::$defaultSort;
+		if (isset($get['sort'])) {
+			$keys = array_keys($_GET['sort']);
+			$sort['field'] = $keys[0];
+			$sort['order'] = ($_GET['sort'][$keys[0]] == SolrQuery::ORDER_ASC)
+				? SolrQuery::ORDER_ASC
+				: SolrQuery::ORDER_DESC;
+		}
+		$query->addSortField($sort['field'], $sort['order']);
+
+		foreach (self::$facetFields['ticket'] as $field=>$displayName) {
 			$query->addFacetField($field);
+			if (!empty($get[$field])) {
+				$query->addFilterQuery("$field:$get[$field]");
+			}
 		}
 		$solrResponse = $this->solrClient->query($query);
 		return $solrResponse->getResponse();
@@ -91,8 +129,12 @@ class Search
 			$document = new SolrInputDocument();
 			$document->addField('recordType', 'ticket');
 			$document->addField('id', (string)$record->getId());
+			$document->addField('enteredDate', $record->getEnteredDate('Y-m-d\TH:i:s\Z'), DateTimeZone::UTC);
 			if ($record->getLatLong()) {
 				$document->addField('coordinates', $record->getLatLong());
+			}
+			if ($record->getCategory()) {
+				$document->addField('category_id', "{$record->getCategory()->getId()}");
 			}
 
 			$stringFields = array(
@@ -143,5 +185,53 @@ class Search
 
 			return $document;
 		}
+	}
+
+	/**
+	 * Returns the display name of a CRM object corresponding to a facet
+	 *
+	 * For each of the self::$facetFields we need a way to look up the CRM
+	 * object corresponding to the facet values in the search index.
+	 * Example: self::getDisplayName('ticket', 'department_id', '4e08f7f0992b949b72000022');
+	 *
+	 * @param string $recordType
+	 * @param string $facetFieldKey
+	 * @param string $value
+	 */
+	public static function getDisplayName($recordType, $facetFieldKey, $value)
+	{
+		if (isset(self::$facetFields[$recordType][$facetFieldKey])) {
+			switch ($facetFieldKey) {
+				case 'client_id':
+				case 'department_id':
+				case 'category_id':
+					$class = self::$facetFields[$recordType][$facetFieldKey];
+					$o = new $class($value);
+					return $o->getName();
+				break;
+
+				case 'assignedPerson_id':
+					$o = new Person($value);
+					return $o->getFullname();
+				break;
+
+				default:
+					return $value;
+			}
+		}
+	}
+
+	public static function getSortableFields($recordType='ticket')
+	{
+		$fields = array(
+			'number',
+			'enteredDate',
+			'status','resolution',
+			'location','city','state','zip'
+		);
+		foreach (AddressService::$customFieldDescriptions as $key=>$value) {
+			$fields[] = $key;
+		}
+		return $fields;
 	}
 }

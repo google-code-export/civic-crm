@@ -5,22 +5,27 @@
  * @copyright 2011-2012 City of Bloomington, Indiana
  * @license http://www.gnu.org/licenses/agpl.txt GNU/AGPL, see LICENSE.txt
  * @author Cliff Ingham <inghamn@bloomington.in.gov>
- * @param array $this->tickets
+ * @param SolrObject $this->solrObject
  */
-if (count($this->tickets)) {
+$tickets = Search::hydrateDocs($this->solrObject);
+if (count($tickets)) {
 	echo "
 	<div class=\"searchResults\">
 	<table>
 	";
-	$header = new Block(
-		'tickets/partials/searchResultsColumnHeaders.inc',
-		array('tickets'=>$this->tickets)
-	);
-	echo $header->render('html',$this->template);
+	$header = new Block('tickets/partials/searchResultsColumnHeaders.inc', array('tickets'=>$tickets));
+	echo $header->render('html', $this->template);
 	echo "</table>";
 
-	include APPLICATION_HOME.'/blocks/html/tickets/partials/searchResultsRows.inc';
+	$row = new Block('tickets/partials/searchResultsRows.inc', array('tickets'=>$tickets));
+	echo $row->render('html', $this->template);
 	echo "
 	</div>
 	";
 }
+
+$paginator = new Zend_Paginator(new SolrPaginatorAdapter($this->solrObject));
+$paginator->setItemCountPerPage(Search::ITEMS_PER_PAGE);
+$paginator->setCurrentPageNumber(round($this->solrObject->response->start/Search::ITEMS_PER_PAGE));
+$block = new Block('pageNavigation.inc',array('paginator'=>$paginator));
+echo $block->render('html', $this->template);

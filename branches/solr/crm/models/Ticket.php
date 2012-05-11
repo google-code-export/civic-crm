@@ -161,70 +161,66 @@ class Ticket extends MongoRecord
 	//----------------------------------------------------------------
 	// Generic Getters
 	//----------------------------------------------------------------
-	/**
-	 * @return MongoId
-	 */
-	public function getId()
+	public function getId()         { return $this->get('_id');        }
+	public function getNumber()     { return $this->get('number');     }
+	public function getStatus()     { return $this->get('status');     }
+	public function getResolution() { return $this->get('resolution'); }
+	public function getLocation()   { return $this->get('location');   }
+	public function getAddress_id() { return $this->get('address_id'); }
+	public function getCity()       { return $this->get('city');       }
+	public function getState()      { return $this->get('state');      }
+	public function getZip()        { return $this->get('zip');        }
+
+
+	public function setAddress_id($id) { $this->data['address_id'] = (int)$id; }
+	public function setCity($s)        { $this->data['city']       = trim($s); }
+
+	public function getEnteredDate($format=null, DateTimeZone $timezone=null)
 	{
-		return $this->data['_id'];
+		return parent::getDateData('enteredDate', $format, $timezone);
 	}
 
-	/**
-	 * @return int
-	 */
-	public function getNumber()
-	{
-		if (isset($this->data['number'])) {
-			return $this->data['number'];
-		}
-	}
-
-	/**
-	 * Returns the date/time in the desired format
-	 *
-	 * Format is specified using PHP's date() syntax
-	 * http://www.php.net/manual/en/function.date.php
-	 * If no format is given, the MongoDate object is returned
-	 *
-	 * @param string $format
-	 * @return string|MongoDate
-	 */
-	public function getEnteredDate($format=null)
-	{
-		if (isset($this->data['enteredDate'])) {
-			if ($format) {
-				return date($format,$this->data['enteredDate']->sec);
-			}
-			else {
-				return $this->data['enteredDate'];
-			}
-		}
-	}
-
-	/**
-	 * Sets the date
-	 *
-	 * Dates should be in something strtotime() understands
-	 * http://www.php.net/manual/en/function.strtotime.php
-	 *
-	 * @param string $date
-	 */
 	public function setEnteredDate($date)
 	{
-		$date = trim($date);
-		if ($date) {
-			$this->data['enteredDate'] = new MongoDate(strtotime($date));
+		parent::setDateData('enteredDate', $date);
+	}
+
+	/**
+	 * @param string $string
+	 */
+	public function setState($string)
+	{
+		$this->data['state'] = trim($string);
+	}
+
+
+	/**
+	 * @param string $string
+	 */
+	public function setZip($string)
+	{
+		$this->data['zip'] = trim($string);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getClient_id()
+	{
+		if (isset($this->data['client_id'])) {
+			return $this->data['client_id'];
 		}
 	}
+
+	public function setLocation($s) { $this->data['location'] = trim($s); }
+
 
 	/**
 	 * @return Person
 	 */
 	public function getEnteredByPerson()
 	{
-		if (isset($this->data['enteredByPerson'])) {
-			return new Person($this->data['enteredByPerson']);
-		}
+		return parent::getPersonObject('enteredByPerson');
 	}
 
 	/**
@@ -245,7 +241,7 @@ class Ticket extends MongoRecord
 
 		if ($person instanceof Person) {
 			if ($person->getUsername()) {
-				$this->setPersonData('enteredByPerson',$person);
+				parent::setPersonData('enteredByPerson',$person);
 			}
 			else {
 				throw new Exception('tickets/personRequiresUsername');
@@ -281,7 +277,7 @@ class Ticket extends MongoRecord
 
 		if ($person instanceof Person) {
 			if ($person->getUsername()) {
-				$this->setPersonData('assignedPerson',$person);
+				parent::setPersonData('assignedPerson', $person);
 			}
 			else {
 				throw new Exception('tickets/personRequiresUsername');
@@ -325,16 +321,6 @@ class Ticket extends MongoRecord
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getStatus()
-	{
-		if (isset($this->data['status'])) {
-			return $this->data['status'];
-		}
-	}
-
-	/**
 	 * Sets the status and clears resolution, if necessary
 	 *
 	 * Setting status to anything other than closed will clear any previously set resolution
@@ -346,16 +332,6 @@ class Ticket extends MongoRecord
 		$this->data['status'] = trim($string);
 		if ($this->data['status'] != 'closed') {
 			unset($this->data['resolution']);
-		}
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getResolution()
-	{
-		if (isset($this->data['resolution'])) {
-			return $this->data['resolution'];
 		}
 	}
 
@@ -374,23 +350,6 @@ class Ticket extends MongoRecord
 		$this->data['status'] = 'closed';
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getLocation()
-	{
-		if (isset($this->data['location'])) {
-			return $this->data['location'];
-		}
-	}
-
-	/**
-	 * @param string $string
-	 */
-	public function setLocation($string)
-	{
-		$this->data['location'] = trim($string);
-	}
 
 	/**
 	 * @return float
@@ -438,87 +397,6 @@ class Ticket extends MongoRecord
 		}
 	}
 
-	/**
-	 * @return int
-	 */
-	public function getAddress_id()
-	{
-		if (isset($this->data['address_id'])) {
-			return $this->data['address_id'];
-		}
-	}
-
-	/**
-	 * @param int $id
-	 */
-	public function setAddress_id($id)
-	{
-		$this->data['address_id'] = (int)$id;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getCity()
-	{
-		if (isset($this->data['city'])) {
-			return $this->data['city'];
-		}
-	}
-
-	/**
-	 * @param string $string
-	 */
-	public function setCity($string)
-	{
-		$this->data['city'] = trim($string);
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getState()
-	{
-		if (isset($this->data['state'])) {
-			return $this->data['state'];
-		}
-	}
-
-	/**
-	 * @param string $string
-	 */
-	public function setState($string)
-	{
-		$this->data['state'] = trim($string);
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getZip()
-	{
-		if (isset($this->data['zip'])) {
-			return $this->data['zip'];
-		}
-	}
-
-	/**
-	 * @param string $string
-	 */
-	public function setZip($string)
-	{
-		$this->data['zip'] = trim($string);
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getClient_id()
-	{
-		if (isset($this->data['client_id'])) {
-			return $this->data['client_id'];
-		}
-	}
 
 	/**
 	 * @param string $id
