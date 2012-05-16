@@ -10,6 +10,7 @@ class Search
 	public static $defaultSort = array('field'=>'enteredDate', 'order'=>SolrQuery::ORDER_DESC);
 
 	const ITEMS_PER_PAGE = 10;
+	const DATE_FORMAT = 'Y-m-d\TH:i:s\Z';
 
 	/**
 	 * These are the base facets all users are allowed to search on
@@ -134,7 +135,7 @@ class Search
 			$document = new SolrInputDocument();
 			$document->addField('recordType', 'ticket');
 			$document->addField('id', (string)$record->getId());
-			$document->addField('enteredDate', $record->getEnteredDate('Y-m-d\TH:i:s\Z'), DateTimeZone::UTC);
+			$document->addField('enteredDate', $record->getEnteredDate(Search::DATE_FORMAT), DateTimeZone::UTC);
 			if ($record->getLatLong()) {
 				$document->addField('coordinates', $record->getLatLong());
 			}
