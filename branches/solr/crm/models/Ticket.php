@@ -163,7 +163,7 @@ class Ticket extends MongoRecord
 	}
 
 	//----------------------------------------------------------------
-	// Generic Getters
+	// Generic Getters & Setters
 	//----------------------------------------------------------------
 	public function getId()         { return $this->get('_id');        }
 	public function getNumber()     { return $this->get('number');     }
@@ -174,59 +174,30 @@ class Ticket extends MongoRecord
 	public function getCity()       { return $this->get('city');       }
 	public function getState()      { return $this->get('state');      }
 	public function getZip()        { return $this->get('zip');        }
-
-
-	public function setAddress_id($id) { $this->data['address_id'] = (int)$id; }
-	public function setCity($s)        { $this->data['city']       = trim($s); }
+	public function getClient_id()  { return $this->get('client_id');  }
+	public function getEnteredByPerson() { return parent::getPersonObject('enteredByPerson'); }
+	public function getAssignedPerson()  { return parent::getPersonObject('assignedPerson');  }
+	public function getReferredPerson()  { return parent::getPersonObject('referredPerson');  }
 
 	public function getEnteredDate($format=null, DateTimeZone $timezone=null)
 	{
 		return parent::getDateData('enteredDate', $format, $timezone);
 	}
 
+	public function setLocation($s)    { $this->data['location']   = trim($s); }
+	public function setAddress_id($id) { $this->data['address_id'] = (int)$id; }
+	public function setCity($s)        { $this->data['city']       = trim($s); }
+	public function setState($s)       { $this->data['state']      = trim($s); }
+	public function setZip($s)         { $this->data['zip']        = trim($s); }
+
 	public function setEnteredDate($date)
 	{
 		parent::setDateData('enteredDate', $date);
 	}
 
-	/**
-	 * @param string $string
-	 */
-	public function setState($string)
-	{
-		$this->data['state'] = trim($string);
-	}
-
-
-	/**
-	 * @param string $string
-	 */
-	public function setZip($string)
-	{
-		$this->data['zip'] = trim($string);
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getClient_id()
-	{
-		if (isset($this->data['client_id'])) {
-			return $this->data['client_id'];
-		}
-	}
-
-	public function setLocation($s) { $this->data['location'] = trim($s); }
-
-
-	/**
-	 * @return Person
-	 */
-	public function getEnteredByPerson()
-	{
-		return parent::getPersonObject('enteredByPerson');
-	}
-
+	//----------------------------------------------------------------
+	// Custom functions
+	//----------------------------------------------------------------
 	/**
 	 * Sets person data
 	 *
@@ -250,16 +221,6 @@ class Ticket extends MongoRecord
 			else {
 				throw new Exception('tickets/personRequiresUsername');
 			}
-		}
-	}
-
-	/**
-	 * @return Person
-	 */
-	public function getAssignedPerson()
-	{
-		if (isset($this->data['assignedPerson'])) {
-			return new Person($this->data['assignedPerson']);
 		}
 	}
 
@@ -290,6 +251,18 @@ class Ticket extends MongoRecord
 	}
 
 	/**
+	 * Sets person data
+	 *
+	 * See: MongoRecord->setPersonData
+	 *
+	 * @param string|array|Person $person
+	 */
+	public function setReferredPerson($person)
+	{
+		parent::setPersonData('referredPerson',$person);
+	}
+
+	/**
 	 * Returns the department of the person this ticket is assigned to.
 	 *
 	 * @return Department
@@ -300,28 +273,6 @@ class Ticket extends MongoRecord
 		if ($person && $person->getDepartment()) {
 			return new Department($person->getDepartment());
 		}
-	}
-
-	/**
-	 * @return Person
-	 */
-	public function getReferredPerson()
-	{
-		if (isset($this->data['referredPerson'])) {
-			return new Person($this->data['referredPerson']);
-		}
-	}
-
-	/**
-	 * Sets person data
-	 *
-	 * See: MongoRecord->setPersonData
-	 *
-	 * @param string|array|Person $person
-	 */
-	public function setReferredPerson($person)
-	{
-		$this->setPersonData('referredPerson',$person);
 	}
 
 	/**
