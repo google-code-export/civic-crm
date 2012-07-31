@@ -1,0 +1,34 @@
+---------------------------------------------------------------------
+Installation
+---------------------------------------------------------------------
+For full installation instructions, refer to the AdminGuide in /docs/
+
+---------------------------------------------------------------------
+Quick Install
+---------------------------------------------------------------------
+Assuming you've met all the requirements...
+
+1. Put the application somewhere accessible by Apache
+2. Load the database using /scripts/mysql.sql
+3. Prepare Solr by copying /scripts/solr/schema.xml to Solr's conf
+4. Add application to Apache config and restart Apache
+
+Alias /crm "/path/to/crm/public"
+<Directory "/path/to/crm/public">
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+
+    RewriteEngine On
+    RewriteBase /crm
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule .? /crm/index.php [NC,L]
+</Directory>
+
+
+---------------------------------------------------------------------
+Configuration
+---------------------------------------------------------------------
+Edit configuration.inc with appropriate values for your installation.
